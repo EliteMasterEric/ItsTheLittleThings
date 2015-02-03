@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "itsthelittlethings",
+  "name": "It's The Little Things",
+  "description": "EliteMasterEric's multipurpose mod for Minecraft Forge",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["EliteMasterEric"],
+  "credits": "The Minecraft Forge team, for creating an important framework for mod creation",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
