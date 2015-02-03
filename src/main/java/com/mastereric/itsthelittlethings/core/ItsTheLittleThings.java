@@ -14,7 +14,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ItsTheLittleThings
 {
     public static final String MODID = "ItsTheLittleThings";
-    public static final String VERSION = "0.1 TESTING";
+    public static final String VERSION = "0.2 TESTING";
     
 	public static Block blockItemHolder;
 	
