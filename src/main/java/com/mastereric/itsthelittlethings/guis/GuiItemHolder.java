@@ -27,7 +27,7 @@ public class GuiItemHolder extends GuiContainer {
                 //the parameters for drawString are: string, x, y, color
                 fontRendererObj.drawString(StatCollector.translateToLocal("tile.blockItemHolder.name"), 60, 4, 4210752);
                 //draws "Inventory" or your regional equivalent
-                fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 24, ySize-96+2, 4210752);
+                fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize-96+2, 4210752);
         }
 
         @Override

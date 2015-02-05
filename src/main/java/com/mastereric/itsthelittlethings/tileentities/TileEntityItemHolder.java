@@ -23,8 +23,6 @@ public class TileEntityItemHolder extends TileEntity implements IInventory {
         numberOfSlots = this.blockMetadata + 1;
         inventory = new ItemStack[numberOfSlots];
         initialized = true;
-        System.out.println("Initialized Item Holder.");
-        System.out.println("Metadata: " + this.blockMetadata + " numberOfSlots: " + numberOfSlots);
     }
 	
     public TileEntityItemHolder(int metadata){
@@ -34,38 +32,18 @@ public class TileEntityItemHolder extends TileEntity implements IInventory {
         numberOfSlots = this.blockMetadata + 1;
         inventory = new ItemStack[numberOfSlots];
         initialized = true;
-        System.out.println("Initialized Item Holder.");
-        System.out.println("Metadata: " + this.blockMetadata + " numberOfSlots: " + numberOfSlots);
     }
 	
 	//Get the number of slots in the inventory.
 	@Override
 	public int getSizeInventory() {
-		if(initialized) {
-	        System.out.println("Get Item Holder Size.");
-	        System.out.println("Metadata: " + this.blockMetadata + " numberOfSlots: " + numberOfSlots);
-			return numberOfSlots;
-		} else {
-			return 0;
-		}
+		return numberOfSlots;
 	}
 	
 	//Get the stack in the given slot of the inventory.
 	@Override
 	public ItemStack getStackInSlot(int slot) {
-		if(initialized) {
-	        //System.out.println("Get Item Holder Inventory.");
-	        //System.out.println("Metadata: " + this.blockMetadata + " numberOfSlots: "
-	        //						+ numberOfSlots + " requestedSlot: " + slot);
-	        if(slot < numberOfSlots) {
-	        	return inventory[slot];
-	        } else {
-	        	return null;
-	        }
-		} else {
-			return null;
-		}
-		
+		return inventory[slot];
 	}
 	
 	//Set the item in the given inventory slot.

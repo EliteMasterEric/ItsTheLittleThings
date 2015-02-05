@@ -14,6 +14,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.RecipeSorter.Category;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -62,8 +63,8 @@ public class ItsTheLittleThings
         		'b', new ItemStack(Blocks.iron_bars),
         		'w', new ItemStack(Blocks.planks));
         //Item Holder Shapeless Recipes
-        GameRegistry.addRecipe(new RecipeItemHolder());
         RecipeSorter.register(MODID + ":itemholder", RecipeItemHolder.class,
         		Category.SHAPELESS, "after:minecraft:shapeless");
+        GameRegistry.addRecipe(new RecipeItemHolder());
 	}
 }

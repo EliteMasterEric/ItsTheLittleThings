@@ -1,7 +1,10 @@
 package com.mastereric.itsthelittlethings.core;
 
 import java.util.ArrayList;
+
+import net.minecraft.block.Block;
 import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
@@ -43,13 +46,20 @@ public class RecipeItemHolder implements IRecipe {
 			ItemStack itemstack = craftingWindow.getStackInSlot(i);
 			//If the item exists,
 			if(itemstack != null) {
-				//and it is NOT an item holder,
-				if(!itemstack.getItem().equals(ItsTheLittleThings.blockItemHolder)) {
-					//Then this isn't a recipe we want to deal with get out now.
-					return false;
+				//and it is an item holder,
+				System.out.println("ID:"+Item.getIdFromItem(itemstack.getItem())+"="
+						+Block.getIdFromBlock(ItsTheLittleThings.blockItemHolder)+
+							(Item.getIdFromItem(itemstack.getItem()) ==
+								Block.getIdFromBlock(ItsTheLittleThings.blockItemHolder)));
+				if(Item.getIdFromItem(itemstack.getItem()) ==
+						Block.getIdFromBlock(ItsTheLittleThings.blockItemHolder)) {
+					listOfItemHolders.add(itemstack);
+					continue;
 				}
-				//If you get here, it's an item holder, so increase the number of item holders.
-				listOfItemHolders.add(itemstack);
+				
+				//If you get here, it's not an item holder, so the recipe must have
+				//a non-item-holder item, which is not the kind of recipe we deal with here.
+				return false;
 			}
 		}
 		//Now that you have a list of all the item holders...
@@ -62,6 +72,7 @@ public class RecipeItemHolder implements IRecipe {
 			//Get the item holder.
 			ItemStack itemHolder = listOfItemHolders.get(0);
 			//Now, switch which output to use based on the item's damage.
+			System.out.println("damage: "+itemHolder.getItemDamage());
 			switch(itemHolder.getItemDamage()) {
 				case 0:
 					//This is just a base item holder,
@@ -78,36 +89,43 @@ public class RecipeItemHolder implements IRecipe {
 					//so return 3 base item holders.
 					//Give Item Holder, quantity 3, damage value 0.
 					finalResult = new ItemStack(ItsTheLittleThings.blockItemHolder, 3, 0);
+					return true;
 				case 3:
 					//This is a 4 slot item holder,
 					//so return 4 base item holders.
 					//Give Item Holder, quantity 4, damage value 0.
 					finalResult = new ItemStack(ItsTheLittleThings.blockItemHolder, 4, 0);
+					return true;
 				case 4:
 					//This is a 5 slot item holder,
 					//so return 5 base item holders.
 					//Give Item Holder, quantity 5, damage value 0.
 					finalResult = new ItemStack(ItsTheLittleThings.blockItemHolder, 5, 0);
+					return true;
 				case 5:
 					//This is a 6 slot item holder,
 					//so return 6 base item holders.
 					//Give Item Holder, quantity 6, damage value 0.
 					finalResult = new ItemStack(ItsTheLittleThings.blockItemHolder, 6, 0);
+					return true;
 				case 6:
 					//This is a 7 slot item holder,
 					//so return 7 base item holders.
 					//Give Item Holder, quantity 7, damage value 0.
 					finalResult = new ItemStack(ItsTheLittleThings.blockItemHolder, 7, 0);
+					return true;
 				case 7:
 					//This is a 8 slot item holder,
 					//so return 8 base item holders.
 					//Give Item Holder, quantity 8, damage value 0.
 					finalResult = new ItemStack(ItsTheLittleThings.blockItemHolder, 8, 0);
+					return true;
 				case 8:
 					//This is a 9 slot item holder,
 					//so return 9 base item holders.
 					//Give Item Holder, quantity 9, damage value 0.
 					finalResult = new ItemStack(ItsTheLittleThings.blockItemHolder, 9, 0);
+					return true;
 				default:
 					//If you got here, something done broke.
 					//Tell the game the recipe is invalid.
