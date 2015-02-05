@@ -24,7 +24,18 @@ import net.minecraft.world.World;
 
 public class BlockItemHolder extends BlockContainer {
 
-	IIcon texture;
+	IIcon textureTop;
+	IIcon textureBottom;
+	IIcon textureBlank;
+	IIcon textureI;
+	IIcon textureII;
+	IIcon textureIII;
+	IIcon textureIV;
+	IIcon textureV;
+	IIcon textureVI;
+	IIcon textureVII;
+	IIcon textureVIII;
+	IIcon textureIX;
 	
 	public BlockItemHolder() {
 		//Set the material type of the item.
@@ -38,13 +49,36 @@ public class BlockItemHolder extends BlockContainer {
 	}
 
 	@Override
-	public IIcon getIcon(int i, int j) {
+	public IIcon getIcon(int side, int damageValue) {
 		//Top or Bottom
-		if (i == 1 || i == 0) {
-			return texture;
-		//Sides
-		} else {
-			return texture;
+		switch(side) {
+			case 0:
+				return textureBottom;
+			case 1:
+				return textureTop;
+			default:
+				switch(damageValue) {
+					case 0:
+						return textureI;
+					case 1:
+						return textureII;
+					case 2:
+						return textureIII;
+					case 3:
+						return textureIV;
+					case 4:
+						return textureV;
+					case 5:
+						return textureVI;
+					case 6:
+						return textureVII;
+					case 7:
+						return textureVIII;
+					case 8:
+						return textureIX;
+					default:
+						return textureBlank;
+				}
 		}
 	}
 	
@@ -109,7 +143,18 @@ public class BlockItemHolder extends BlockContainer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister) {
-		texture = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolder");
+		textureTop = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderTop");
+		textureBottom = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderBottom");
+		textureBlank = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideBlank");
+		textureI = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideI");
+		textureII = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideII");
+		textureIII = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideIII");
+		textureIV = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideIV");
+		textureV = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideV");
+		textureVI = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideVI");
+		textureVII = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideVII");
+		textureVIII = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideVIII");
+		textureIX = par1IconRegister.registerIcon("itsthelittlethings:blockItemHolderSideIX");
 	}
 
 	@Override
